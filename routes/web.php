@@ -31,7 +31,7 @@ Route::post('/payment', 'PayMentController@store')->name('payment.store')->middl
 
 Route::get('/notifications', 'UserNotificationsController@show')->name('notifications.show')->middleware('auth');
 
-
+// ------------------- ...... ..............................................
 Route::get('/conversations', 'ConversationController@index');
 Route::get('/conversations/{conversation}', 'ConversationController@show');
 

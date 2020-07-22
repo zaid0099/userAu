@@ -20,6 +20,8 @@ class CreateConversationsTable extends Migration
             $table->text('body');
             $table->timestamps();
 
+            $table->unsignedBigInteger('best_reply_id')->nullable();
+
             $table->foreign('user_id')
             ->references('id')
             ->on('users')

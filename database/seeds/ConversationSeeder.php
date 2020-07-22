@@ -11,8 +11,7 @@ class ConversationSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\User::class, 5)->create();
-        factory(App\Conversation::class, 5)->create();
-        // factory(App\Comment::class, 15)->create();
+        factory(App\Conversation::class, 10)->create();
+
     }
 }

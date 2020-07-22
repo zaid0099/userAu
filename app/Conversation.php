@@ -6,6 +6,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Conversation extends Model
 {
+    protected $guarded = [];
+
+    public function setBestReply(Reply $reply)
+    {
+        $this->best_reply_id = $reply->id;
+        $this->save();
+    }
+
     public function replies()
     {
         return $this->hasMany(Reply::class);

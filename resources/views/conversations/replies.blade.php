@@ -1,12 +1,18 @@
-@foreach ($conversation->replies as $reply)
+@foreach($conversation->replies as $reply)
 <div>
-    <p class="m-0"><strong> {{ $reply->user->name }} said..... </strong></p>
+    <header style="display: flex; justify-content: space-between;">
+        <p class="m-0"><strong> {{ $reply->user->name }} said..... </strong></p>
+
+        @if ($reply->isBest())
+            <span style="color: green;">Best Reply</span>
+        @endif
+    </header>
 
     {{ $reply->body }}
 </div>
 
-@can('update-conversation', $conversation)
-<form method="POSR" action="/best-replies/{{ $reply->id }}">
+@can('update', $conversation)
+<form method="POST" action="/best-replies/{{ $reply->id }}">
     @csrf
 
     <button type="submit" class="btn p-0 text-muted">Beast Replay</button>
@@ -17,5 +23,3 @@
 
 <hr>
 @endforeach
-
-<h1>Replies Pages</h1>
