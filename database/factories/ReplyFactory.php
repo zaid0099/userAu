@@ -8,7 +8,7 @@ use Faker\Generator as Faker;
 
 $factory->define(Reply::class, function (Faker $faker) {
     return [
-        'user_id' => 11,
+        'user_id' => 2,
         'conversation_id' => 2,
         'body' => $faker->sentence,
     ];
